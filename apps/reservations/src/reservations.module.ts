@@ -30,8 +30,8 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         PORT: Joi.number().required(),
         AUTH_HOST: Joi.string().required(),
         PAYMENTS_HOST: Joi.string().required(),
-        AUTH_SERVICE: Joi.string().required(),
-        PAYMENTS_SERVICE: Joi.string().required(),
+        AUTH_PORT: Joi.string().required(),
+        PAYMENTS_PORT: Joi.string().required(),
       }),
     }),
     ClientsModule.registerAsync([
