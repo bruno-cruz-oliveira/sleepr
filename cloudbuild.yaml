@@ -10,9 +10,13 @@ steps:
         'apps/reservations/Dockerfile',
         '.',
       ]
+    options:
+      logging: CLOUD_LOGGING_ONLY
   - name: 'gcr.io/cloud-builders/docker'
     args:
       ['push', 'us-east4-docker.pkg.dev/sleepr-483711/reservations/production']
+    options:
+      logging: CLOUD_LOGGING_ONLY
 
   # Auth
   - name: 'gcr.io/cloud-builders/docker'
@@ -25,8 +29,12 @@ steps:
         'apps/auth/Dockerfile',
         '.',
       ]
+    options:
+      logging: CLOUD_LOGGING_ONLY
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-east4-docker.pkg.dev/sleepr-483711/auth/production']
+    options:
+      logging: CLOUD_LOGGING_ONLY
 
   # Notifications
   - name: 'gcr.io/cloud-builders/docker'
@@ -39,9 +47,13 @@ steps:
         'apps/notifications/Dockerfile',
         '.',
       ]
+    options:
+      logging: CLOUD_LOGGING_ONLY
   - name: 'gcr.io/cloud-builders/docker'
     args:
       ['push', 'us-east4-docker.pkg.dev/sleepr-483711/notifications/production']
+    options:
+      logging: CLOUD_LOGGING_ONLY
 
   # Payments
   - name: 'gcr.io/cloud-builders/docker'
@@ -53,6 +65,10 @@ steps:
         '-f',
         'apps/payments/Dockerfile',
         '.',
-      ]
+      ] 
+    options:
+      logging: CLOUD_LOGGING_ONLY
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-east4-docker.pkg.dev/sleepr-483711/payments/production']
+    options:
+      logging: CLOUD_LOGGING_ONLY
